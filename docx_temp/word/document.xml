@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>
+    <w:p><w:pPr><w:pStyle w:val="Title"/></w:pPr><w:r><w:t>FizzBuzz App Deliverable</w:t></w:r></w:p>
+    <w:p><w:r><w:t>This document contains the FizzBuzz app source code and output preview.</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Source code file: script.js</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Code:</w:t></w:r></w:p>
+    <w:p><w:r><w:t>const fizzBuzzList = document.getElementById(&quot;fizzBuzzList&quot;);</w:t></w:r></w:p>
+    <w:p><w:r><w:t>function generateFizzBuzz(limit = 20) {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>  const results = [];</w:t></w:r></w:p>
+    <w:p><w:r><w:t>  for (let number = 1; number &lt;= limit; number += 1) {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>    if (number % 3 === 0 &amp;&amp; number % 5 === 0) {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>      results.push(`${number} FizzBuzz`);</w:t></w:r></w:p>
+    <w:p><w:r><w:t>    } else if (number % 3 === 0) {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>      results.push(`${number} Fizz`);</w:t></w:r></w:p>
+    <w:p><w:r><w:t>    } else if (number % 5 === 0) {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>      results.push(`${number} Buzz`);</w:t></w:r></w:p>
+    <w:p><w:r><w:t>    } else {</w:t></w:r></w:p>
+    <w:p><w:r><w:t>      results.push(String(number));</w:t></w:r></w:p>
+    <w:p><w:r><w:t>    }</w:t></w:r></w:p>
+    <w:p><w:r><w:t>  }</w:t></w:r></w:p>
+    <w:p><w:r><w:t>  return results;</w:t></w:r></w:p>
+    <w:p><w:r><w:t>}</w:t></w:r></w:p>
+    <w:p><w:r><w:t>renderFizzBuzz();</w:t></w:r></w:p>
+    <w:p><w:r><w:t>Output:</w:t></w:r></w:p>
+    <w:p><w:r><w:t>1 2 3 Fizz 4 5 Buzz 6 Fizz ... 20 Buzz</w:t></w:r></w:p>
+    <w:sectPr/></w:body>
+</w:document>

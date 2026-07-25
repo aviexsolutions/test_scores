@@ -3,41 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tip Calculator</title>
+    <title>FizzBuzz App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="calculator">
-        <h1>Tip Calculator</h1>
-
-        <div class="inputs">
-            <label for="mealCost">Meal Cost</label>
-            <input id="mealCost" type="number" min="0" step="0.01" placeholder="Enter meal cost" required>
-
-            <label for="tipPercent">Tip Percent</label>
-            <input id="tipPercent" type="number" min="0" max="100" step="1" placeholder="Enter tip percent" required>
-
-            <button id="calculateBtn" type="button">Calculate</button>
-        </div>
-
-        <section class="results" aria-live="polite">
-            <div class="result-row">
-                <span class="label">Meal Cost</span>
-                <span id="mealCostDisplay" class="value">$0.00</span>
-            </div>
-            <div class="result-row">
-                <span class="label">Tip Percent</span>
-                <span id="tipPercentDisplay" class="value">0%</span>
-            </div>
-            <div class="result-row">
-                <span class="label">Tip Amount</span>
-                <span id="tipAmountDisplay" class="value">$0.00</span>
-            </div>
-            <div class="result-row">
-                <span class="label">Total Cost</span>
-                <span id="totalCostDisplay" class="value">$0.00</span>
-            </div>
-        </section>
+    <main class="app">
+        <h1>FizzBuzz Challenge</h1>
+        <p class="subtitle">Numbers 1 through 20</p>
+        <ol id="fizzBuzzList" class="output-list"></ol>
     </main>
 
     <script src="script.js"></script>
