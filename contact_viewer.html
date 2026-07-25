@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <h1>Contact Viewer</h1>
+        <p class="subtitle">Use the command box below and enter list, get #, show #, or exit.</p>
+        <div class="controls">
+            <button id="startBtn">Start Viewer</button>
+            <input id="commandInput" type="text" placeholder="e.g. list or get 1" aria-label="Contact command" />
+            <button id="runBtn">Run Command</button>
+            <button id="clearBtn">Clear Output</button>
+        </div>
+        <ol id="output" class="output-list" aria-live="polite"></ol>
+    </main>
+
+    <script src="contact.js"></script>
+</body>
+</html>
