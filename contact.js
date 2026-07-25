@@ -69,7 +69,7 @@ function executeCommand(rawInput) {
     const trimmed = rawInput.trim();
     if (trimmed.length === 0) {
         renderOutput(["Please enter a command or click Start Viewer for command list."]);
-        return;
+        return true;
     }
 
     const parts = trimmed.split(/\s+/);
@@ -78,36 +78,49 @@ function executeCommand(rawInput) {
 
     if (command === "exit") {
         renderOutput(["Exiting contact viewer."]);
-        return;
+        return false;
     }
 
     if (command === "list") {
         listContacts();
-        return;
+        return true;
     }
 
     if (command === "get" || command === "show") {
         if (!argument) {
             renderOutput(["Please include a contact number after the command."]);
-            return;
+            return true;
         }
 
         const contactNumber = parseInt(argument, 10);
         if (!Number.isInteger(contactNumber) || contactNumber < 1) {
             renderOutput(["Please enter a valid contact number."]);
-            return;
+            return true;
         }
 
         showContact(contactNumber - 1);
-        return;
+        return true;
     }
 
     renderOutput(["Invalid command. Use list, get #, show #, or exit."]);
+    return true;
+}
+
+function runCommandDialog() {
+    let keepRunning = true;
+    while (keepRunning) {
+        const input = prompt(showMenuLines().join("\n"));
+        if (input === null) {
+            renderOutput(["Contact viewer closed."]);
+            break;
+        }
+
+        keepRunning = executeCommand(input);
+    }
 }
 
 startButton.addEventListener("click", () => {
-    renderOutput(showMenuLines());
-    commandInput.focus();
+    runCommandDialog();
 });
 
 runButton.addEventListener("click", () => executeCommand(commandInput.value));
