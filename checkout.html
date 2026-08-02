@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout - Tuxedo Cat Coffee</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .checkout { max-width:720px; margin:2rem auto; padding:1rem }
+  </style>
+</head>
+<body>
+  <div class="app checkout">
+    <h1>Checkout</h1>
+    <div id="summary">
+      <p>Loading your order…</p>
+    </div>
+    <p><button id="back">Back to Menu</button></p>
+  </div>
+
+  <script>
+    function render() {
+      const data = sessionStorage.getItem('tuxedoOrder');
+      const container = document.getElementById('summary');
+      if (!data) {
+        container.innerHTML = '<p>No order found.</p>';
+        return;
+      }
+      const order = JSON.parse(data);
+      let total = 0;
+      const ul = document.createElement('ul');
+      ul.style.listStyle = 'none';
+      ul.style.padding = '0';
+      order.forEach(it => {
+        const li = document.createElement('li');
+        li.textContent = `${it.name} — $${it.price.toFixed(2)}`;
+        ul.appendChild(li);
+        total += it.price;
+      });
+      container.innerHTML = '';
+      container.appendChild(ul);
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+      container.appendChild(p);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      render();
+      document.getElementById('back').addEventListener('click', () => location.href = 'tuxedocat.html');
+    });
+  </script>
+</body>
+</html>
