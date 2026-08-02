@@ -1,14 +1,22 @@
-document.getElementById("calculateBtn").addEventListener("click", processScores);
+document.addEventListener("DOMContentLoaded", () => {
+    const runBtn = document.getElementById("runBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    runBtn.addEventListener("click", processScores);
+    clearBtn.addEventListener("click", clearResults);
+});
 
 function processScores() {
-    let userInput = prompt("Enter test scores separated by commas.");
+    const inputEl = document.getElementById("scoresInput");
+    let userInput = (inputEl.value || "").trim();
+
+    // If nothing typed, fall back to prompt
+    if (!userInput) {
+        userInput = prompt("Enter test scores separated by commas.");
+    }
 
     if (userInput === null || userInput.trim() === "") {
-        // Display message in-page when no input is provided
-        document.getElementById("scoresList").textContent = "No scores were entered.";
-        document.getElementById("lowScore").textContent = "";
-        document.getElementById("highScore").textContent = "";
-        document.getElementById("avgScore").textContent = "";
+        displayNoScores();
         return;
     }
 
@@ -18,7 +26,25 @@ function processScores() {
     let high = Math.max(...scoresArray);
     let average = calculateAverage(scoresArray);
 
+    // populate input with what was used
+    inputEl.value = userInput;
+
     displayResults(scoresArray, low, high, average);
+}
+
+function clearResults() {
+    document.getElementById("scoresInput").value = "";
+    document.getElementById("scoresList").textContent = "";
+    document.getElementById("lowScore").textContent = "";
+    document.getElementById("highScore").textContent = "";
+    document.getElementById("avgScore").textContent = "";
+}
+
+function displayNoScores() {
+    document.getElementById("scoresList").textContent = "No scores were entered.";
+    document.getElementById("lowScore").textContent = "";
+    document.getElementById("highScore").textContent = "";
+    document.getElementById("avgScore").textContent = "";
 }
 
 function parseScores(input) {

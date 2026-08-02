@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Scores App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Test Scores Application</h1>
-    <button id="calculateBtn">Enter Test Scores</button>
+    <div class="app">
+        <h1>Test Scores</h1>
+        <p class="subtitle">Enter a comma-separated list of test scores and see the low, high, and average (rounded to 1 decimal).</p>
 
-    <div id="output">
-        <p>Scores: <span id="scoresList"></span></p>
-        <p>Low Score: <span id="lowScore"></span></p>
-        <p>High Score: <span id="highScore"></span></p>
-        <p>Average Score: <span id="avgScore"></span></p>
+            <div class="controls">
+            <input id="scoresInput" placeholder="Enter scores (e.g. 78, 92.5, 84, 100)" />
+            <button id="runBtn">Enter Test Scores</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+
+        <ul class="output-list">
+            <li>Scores: <strong id="scoresList"></strong></li>
+            <li>Low Score: <strong id="lowScore"></strong></li>
+            <li>High Score: <strong id="highScore"></strong></li>
+            <li>Average Score: <strong id="avgScore"></strong></li>
+        </ul>
     </div>
 
     <script src="test_scores.js"></script>
